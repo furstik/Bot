@@ -160,7 +160,7 @@ async def handle_group_message(message: Message, bot: Bot):
                 until_date=mute_until
             )
             await message.answer(
-                f"🛑 {user_mention} получает мут на {settings.MUTE_MINUTES} минут за систематическое игнорирование подписки."
+                f"🛑 {user_mention} подпишись на канал @FurriStik чтобы писать в чат"
             )
         except TelegramBadRequest as e:
             logging.error(f"Не удалось выдать мут: {e}")
@@ -171,7 +171,7 @@ async def handle_group_message(message: Message, bot: Bot):
     else:
         try:
             warn_msg = await message.answer(
-                f"⚠️ {user_mention}, подпишись на канал: t.me/FurriStik\n"
+                f"⚠️ {user_mention}, чтобы писать в чат, подпишись на канал: t.me/FurriStik\n"
             )
             # Сохраняем ID нового предупреждения
             last_warning_msgs[chat_id][user_id] = warn_msg.message_id
