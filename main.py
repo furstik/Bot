@@ -171,7 +171,7 @@ async def handle_group_message(message: Message, bot: Bot):
     else:
         try:
             warn_msg = await message.answer(
-                f"⚠️ {user_mention}, чтобы писать в чат, подпишись на канал: t.me/FurriStik\n"
+                f"⚠️ {user_mention}, чтобы писать в чат, подпишись на канал: @FurriStik\n"
             )
             # Сохраняем ID нового предупреждения
             last_warning_msgs[chat_id][user_id] = warn_msg.message_id
