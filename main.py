@@ -95,6 +95,12 @@ router = Router()
 
 @router.message(F.chat.type.in_({"group", "supergroup"}))
 async def handle_group_message(message: Message, bot: Bot):
+    
+    #Игнорируем каналы и системные 
+    if message.sender_chat:
+        return
+    # -------------------------------------------------------------
+
     user = message.from_user
     chat_id = message.chat.id
     user_id = user.id
